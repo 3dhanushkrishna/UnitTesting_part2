@@ -1,3 +1,5 @@
+import sys
+
 import Caluclator
 import unittest
 class check_calculator(unittest.TestCase):
@@ -12,13 +14,13 @@ class check_calculator(unittest.TestCase):
         b = 10
         c = Caluclator.sub(a, b)
         self.assertEqual(a - b, c)
-
+    @unittest.skipUnless(sys.platform.startswith("linux"),"requires not windows os")
     def test_mul(self):
         a = 20
         b = 10
         c = Caluclator.mul(a, b)
         self.assertEqual(a * b, c)
-
+    @unittest.skipIf(sys.platform.startswith("win"),"requries maxbook")
     def test_div(self):
         a = 20
         b = 10
